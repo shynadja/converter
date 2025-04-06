@@ -1,20 +1,23 @@
-import asyncio
-from converters import *
+from converters.currency_converter import UsdToRubConverter, UsdToEurConverter, UsdToGbpConverter, UsdToCnyConverter
 
-def main():    
-    amount = int(input('Введите значение в USD: \n'))
-    
-    converter = UsdRubConverter()
-    print(f"{amount} USD to RUB: {converter.convert_usd_to_rub(amount)}")
-    
-    converter = UsdEurConverter()
-    print(f"{amount} USD to EUR: {converter.convert_usd_to_eur(amount)}")
-    
-    converter = UsdGbpConverter()
-    print(f"{amount} USD to GBP: {converter.convert_usd_to_gbp(amount)}")
-    
-    converter = UsdCnyConverter()
-    print(f"{amount} USD to CNY: {converter.convert_usd_to_cny(amount)}")
 
-if __name__ == "__main__":
+def main():
+    amount = float(input('Введите значение в USD: '))
+
+    print(f'Converting {amount:.2f} USD...')
+
+    rub_converter = UsdToRubConverter()
+    print(f'{amount:.2f} USD to RUB: {rub_converter.convert(amount):.2f}')
+
+    eur_converter = UsdToEurConverter()
+    print(f'{amount:.2f} USD to EUR: {eur_converter.convert(amount):.2f}')
+
+    gbp_converter = UsdToGbpConverter()
+    print(f'{amount:.2f} USD to GBP: {gbp_converter.convert(amount):.2f}')
+
+    cny_converter = UsdToCnyConverter()
+    print(f'{amount:.2f} USD to CNY: {cny_converter.convert(amount):.2f}')
+
+
+if __name__ == '__main__':
     main()
